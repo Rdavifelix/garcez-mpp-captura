@@ -1,0 +1,1184 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mapa do Planejamento Patrimonial — Inscrição Gratuita</title>
+  <meta name="description" content="Evento online e gratuito 11, 12 e 13 de agosto às 19h30. Estratégias legais para reduzir impostos em imóveis de locação em Santa Catarina, proteger ativos e transmitir 100% do seu legado.">
+
+  <meta property="og:title" content="Mapa do Planejamento Patrimonial — Inscrição Gratuita">
+  <meta property="og:description" content="Evento online e gratuito 11, 12 e 13 de agosto às 19h30. Estratégias legais para reduzir impostos em imóveis de locação em Santa Catarina, proteger ativos e transmitir 100% do seu legado.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="https://luizgarcez.com.br/wp-content/uploads/2025/01/cropped-FAVICON-32x32.png" sizes="32x32">
+  <link rel="icon" href="https://luizgarcez.com.br/wp-content/uploads/2025/01/cropped-FAVICON-192x192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="https://luizgarcez.com.br/wp-content/uploads/2025/01/cropped-FAVICON-180x180.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- GA4 (first-party via /mpp-07/scripts/gtag.js which proxies googletagmanager) -->
+  <script async src="/mpp-07/scripts/gtag.js?id=G-XXXXXXXXXX"></script>
+  <script>
+  /* ============================================================
+     CONFIG DA PÁGINA — ajuste aqui ao publicar cada variação
+     ============================================================ */
+  window.MPP_CONFIG = {
+    WEBHOOK_URL:  'https://hook.us2.make.com/5itm6cg6i89rjtk9mogmbhv1qg2m1loh', // Make: recebe TODO formulário enviado
+    TRACKER_URL:  '',                  // endpoint do tracker (Meta CAPI/GA4). Vazio = desligado
+    OBRIGADO_URL: '../obrigado/',      // página de obrigado (UTMs são preservadas)
+    PAGE_ID:      'mpp-captura',       // identificador desta variação (vai no payload)
+  };
+
+  /* ============================================================
+     UTMs — captura na 1ª visita e guarda por 30 dias (first-touch),
+     para não perder atribuição se o lead voltar sem parâmetros.
+     ============================================================ */
+  window.MPP_ATTR = (function () {
+    var KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id',
+                'fbclid','gclid','ttclid','src','sck'];
+    var STORE = 'mpp_attr';
+    var qs = new URLSearchParams(window.location.search);
+    var fresh = {}; var has = false;
+    KEYS.forEach(function (k) { var v = qs.get(k); if (v) { fresh[k] = v; has = true; } });
+    var saved = null;
+    try { saved = JSON.parse(localStorage.getItem(STORE) || 'null'); } catch (_) {}
+    if (saved && saved.ts && (Date.now() - saved.ts) > 30*24*60*60*1000) saved = null;
+    var attr;
+    if (has) {
+      attr = fresh; attr.ts = Date.now(); attr.landing_url = window.location.href;
+      attr.referrer = document.referrer || '';
+      try { localStorage.setItem(STORE, JSON.stringify(attr)); } catch (_) {}
+    } else if (saved) {
+      attr = saved;
+    } else {
+      attr = { ts: Date.now(), landing_url: window.location.href, referrer: document.referrer || '' };
+      try { localStorage.setItem(STORE, JSON.stringify(attr)); } catch (_) {}
+    }
+    var out = {};
+    KEYS.forEach(function (k) { out[k] = attr[k] || ''; });
+    out.landing_url = attr.landing_url || ''; out.referrer = attr.referrer || '';
+    return out;
+  })();
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1213118886545108');
+
+    (function () {
+      var pvEventId = (crypto.randomUUID && crypto.randomUUID()) ||
+        (Date.now() + '-' + Math.random().toString(36).slice(2));
+      fbq('track', 'PageView', {}, { eventID: pvEventId });
+      if (window.MPP_CONFIG.TRACKER_URL) fetch(window.MPP_CONFIG.TRACKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        keepalive: true,
+        body: JSON.stringify({
+          event_name: 'PageView',
+          event_id: pvEventId,
+          event_time: Math.floor(Date.now() / 1000),
+          event_source_url: window.location.href,
+          user_data: {},
+        }),
+      }).catch(function () {});
+    })();
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --gold:        #ae8b44;
+      --gold-soft:   #c9a35a;
+      --gold-deep:   #8a6d2f;
+      --bg:          #02092b;
+      --bg-elev:     #0a1338;
+      --bg-card:     #161a23;
+      --bg-card-2:   #1c2230;
+      --line:        rgba(174, 139, 68, 0.18);
+      --line-soft:   rgba(255, 255, 255, 0.08);
+      --ink:         #ffffff;
+      --ink-soft:    #c8cbd2;
+      --ink-mute:    #8a8e98;
+      --radius:      14px;
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      background: var(--bg);
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============================================================
+       FAIXA EXCLUSIVA (top)
+       ============================================================ */
+    .faixa {
+      background: linear-gradient(180deg, var(--gold-soft) 0%, var(--gold) 55%, var(--gold-deep) 100%);
+      border-bottom: 1px solid rgba(0,0,0,0.20);
+      box-shadow: 0 6px 24px rgba(174,139,68,0.30);
+    }
+    .faixa-inner {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .faixa-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, rgba(2,9,43,0), rgba(2,9,43,0.45), rgba(2,9,43,0));
+    }
+    .faixa-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 20px;
+      border: 1px solid rgba(2, 9, 43, 0.28);
+      border-radius: 999px;
+      background: rgba(2, 9, 43, 0.10);
+    }
+    .faixa-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #02092b;
+      box-shadow: 0 0 0 4px rgba(2, 9, 43, 0.15);
+    }
+    .faixa-text {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: #02092b;
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      position: relative;
+      background:
+        linear-gradient(90deg, rgba(2,9,43,0.95) 0%, rgba(2,9,43,0.82) 32%, rgba(2,9,43,0.35) 50%, rgba(2,9,43,0.06) 66%, rgba(2,9,43,0) 80%),
+        url('../assets/hero.webp') center right / cover no-repeat,
+        linear-gradient(180deg, #02092b 0%, #04113a 100%);
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 620px);
+      gap: 40px;
+      align-items: center;
+      padding: 80px 0 110px;
+      min-height: 620px;
+    }
+    .hero-logo {
+      max-width: 360px;
+      width: 100%;
+      margin-bottom: 28px;
+    }
+    .meta {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      color: var(--ink-soft);
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .meta li {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 0.4px;
+    }
+    .meta svg {
+      width: 16px; height: 16px;
+      fill: var(--gold);
+      flex-shrink: 0;
+    }
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2rem, 4.4vw, 3.1rem);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin: 0 0 20px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    h1 .accent {
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 1.0625rem;
+      color: var(--ink-soft);
+      margin: 0 0 32px;
+      max-width: 540px;
+    }
+    .hero-sub strong { color: var(--ink); font-weight: 600; }
+
+    .hero-photo {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: 18px;
+      overflow: hidden;
+      background:
+        radial-gradient(closest-side, rgba(174,139,68,0.25), transparent 70%),
+        linear-gradient(160deg, #1d232f 0%, #03102e 100%);
+      border: 1px solid var(--line);
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-photo-placeholder {
+      position: absolute; inset: 0;
+      display: grid; place-items: center;
+      color: var(--ink-mute);
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       BUTTON
+       ============================================================ */
+    .btn-cta {
+      appearance: none;
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 18px 36px;
+      border-radius: 12px;
+      color: #fff;
+      background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.20),
+        0 10px 28px rgba(174, 139, 68, 0.30);
+      transition: transform .12s ease, filter .15s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-cta:hover { filter: brightness(1.08); transform: translateY(-1px); }
+    .btn-cta:active { transform: translateY(1px); }
+    .btn-cta:disabled { opacity: .65; cursor: not-allowed; }
+
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      padding: 48px 0;
+    }
+
+    /* ============================================================
+       MARQUEE
+       ============================================================ */
+    .marquee {
+      overflow: hidden;
+      background: linear-gradient(180deg, var(--gold-deep), var(--gold));
+      color: #02092b;
+      padding: 18px 0;
+      border-top: 1px solid rgba(0,0,0,0.10);
+      border-bottom: 1px solid rgba(0,0,0,0.10);
+    }
+    .marquee-track {
+      display: flex;
+      gap: 60px;
+      white-space: nowrap;
+      animation: marquee 18s linear infinite;
+      will-change: transform;
+    }
+    .marquee-track span {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .marquee-track .dot { margin: 0 .5em; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ============================================================
+       SECTION HEADINGS
+       ============================================================ */
+    .section {
+      padding: 80px 0;
+      position: relative;
+    }
+    .section-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      text-align: center;
+      margin: 0 0 48px;
+      line-height: 1.2;
+    }
+    .section-title .accent { color: var(--gold); }
+
+    /* ============================================================
+       DAYS GRID
+       ============================================================ */
+    .days {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .day-card {
+      background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-card-2) 100%);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 32px 28px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.30);
+    }
+    .day-card h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin: 0 0 16px;
+      color: var(--ink);
+    }
+    .day-card h3 .day-num { color: var(--gold); display: block; margin-bottom: 4px; }
+    .day-meta {
+      list-style: none; padding: 0; margin: 0 0 16px;
+      display: flex; flex-wrap: wrap; gap: 14px;
+      color: var(--ink-mute);
+      font-size: 13px;
+    }
+    .day-meta li { display: inline-flex; align-items: center; gap: 6px; }
+    .day-meta svg { width: 14px; height: 14px; fill: var(--gold); }
+    .day-card p {
+      margin: 16px 0 0;
+      color: var(--ink-soft);
+      font-size: .9375rem;
+      line-height: 1.65;
+    }
+    .day-card p strong { color: var(--ink); font-weight: 600; }
+
+    /* ============================================================
+       BIO SECTION
+       ============================================================ */
+    .days-section {
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(2,9,43,0.92) 0%, rgba(2,9,43,0.86) 100%),
+        url('../assets/secao-02.webp') center center / cover no-repeat,
+        var(--bg);
+    }
+    .bio-section {
+      position: relative;
+      background:
+        linear-gradient(90deg, rgba(2,9,43,0.94) 0%, rgba(2,9,43,0.80) 32%, rgba(2,9,43,0.32) 50%, rgba(2,9,43,0.05) 66%, rgba(2,9,43,0) 80%),
+        url('../assets/quem-sou.webp') center right / cover no-repeat,
+        var(--bg-elev);
+      min-height: 620px;
+    }
+    .bio-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 560px);
+      gap: 48px;
+      align-items: center;
+    }
+    .bio-text p {
+      margin: 0 0 16px;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+    .bio-text p strong { color: var(--ink); font-weight: 600; }
+
+    /* ============================================================
+       TESTIMONIALS CAROUSEL
+       ============================================================ */
+    .testi-section {
+      background:
+        radial-gradient(1000px 500px at 50% 0%, rgba(174, 139, 68, 0.10), transparent 60%),
+        var(--bg);
+    }
+    .testi-wrap {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+              mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    }
+    .testi-track {
+      display: flex;
+      gap: 24px;
+      width: max-content;
+      padding: 4px;
+      animation: testiScroll 36s linear infinite;
+    }
+    .testi-wrap:hover .testi-track { animation-play-state: paused; }
+    /* -50% desloca exatamente um conjunto; o -12px compensa meia lacuna (gap/2) p/ loop sem "pulo" */
+    @keyframes testiScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(calc(-50% - 12px)); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .testi-track { animation: none; }
+      .testi-wrap { overflow-x: auto; }
+    }
+    .testi-card {
+      flex: 0 0 auto;
+      width: clamp(260px, 80vw, 340px);
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    }
+    .testi-card img { width: 100%; display: block; }
+
+    .testi-controls {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 32px;
+    }
+    .testi-btn {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--bg-card);
+      color: var(--gold);
+      font-size: 18px;
+      cursor: pointer;
+      display: grid; place-items: center;
+      transition: background .15s ease;
+    }
+    .testi-btn:hover { background: var(--bg-card-2); }
+
+    /* ============================================================
+       FAQ
+       ============================================================ */
+    .faq {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%;
+      background: transparent;
+      border: 0;
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: left;
+      padding: 22px 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .faq-q .icon {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      display: grid; place-items: center;
+      color: var(--gold);
+      font-size: 18px;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .faq-item[open] .faq-q .icon {
+      background: var(--gold);
+      color: #fff;
+      transform: rotate(45deg);
+    }
+    .faq-a {
+      padding: 0 24px 22px;
+      color: var(--ink-soft);
+      font-size: .9375rem;
+      line-height: 1.7;
+    }
+    .faq-a strong { color: var(--ink); font-weight: 600; }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--ink-mute);
+      font-size: .875rem;
+      border-top: 1px solid var(--line-soft);
+      background: var(--bg);
+    }
+    .footer strong { color: var(--ink); font-weight: 600; }
+
+    /* ============================================================
+       MODAL / POPUP
+       ============================================================ */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.70);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity .2s ease;
+    }
+    .modal-overlay.is-open {
+      display: flex;
+      opacity: 1;
+    }
+    .modal {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 40px 36px 32px;
+      max-width: 460px;
+      width: 100%;
+      max-height: 92vh;
+      overflow-y: auto;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.60);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 14px; right: 14px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--line-soft);
+      background: transparent;
+      color: var(--ink-mute);
+      cursor: pointer;
+      font-size: 18px;
+      display: grid; place-items: center;
+      transition: color .15s ease, border-color .15s ease;
+    }
+    .modal-close:hover { color: var(--ink); border-color: var(--line); }
+
+    .modal-logo {
+      max-width: 220px;
+      margin: 0 auto 20px;
+    }
+    .modal-eyebrow {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 6px;
+    }
+    .modal-title {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0 0 6px;
+    }
+    .modal-sub {
+      text-align: center;
+      color: var(--ink-mute);
+      font-size: .9rem;
+      margin: 0 0 24px;
+    }
+
+    form.signup { display: flex; flex-direction: column; gap: 14px; }
+    .input {
+      appearance: none;
+      width: 100%;
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      padding: 14px 16px;
+      font-size: 1rem;
+      color: var(--ink);
+      font-family: inherit;
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .input::placeholder { color: var(--ink-mute); }
+    select.input {
+      cursor: pointer;
+      padding-right: 44px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23c9a35a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+    }
+    select.input:invalid, select.input.is-empty { color: var(--ink-mute); }
+    select.input option { background: #0a1338; color: var(--ink); }
+    .input:focus {
+      outline: 0;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(174, 139, 68, 0.18);
+    }
+    .field-hint { font-size: .75rem; color: var(--ink-mute); margin: 4px 2px 0; }
+    .form-error {
+      display: none;
+      margin: 4px 2px 0;
+      font-size: .85rem;
+      color: #f87171;
+    }
+    .form-error.is-on { display: block; }
+    .form-fine {
+      margin: 14px 2px 0;
+      font-size: .75rem;
+      color: var(--ink-mute);
+      text-align: center;
+    }
+    .modal-success {
+      display: none;
+      padding: 24px 20px;
+      border-radius: 14px;
+      background: rgba(174, 139, 68, 0.10);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      text-align: center;
+    }
+    .modal-success.is-on { display: block; }
+    .modal-success strong {
+      display: block;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 0 0 6px;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 980px) {
+      .hero {
+        background:
+          linear-gradient(180deg, rgba(2,9,43,0) 0%, rgba(2,9,43,0.10) 40%, rgba(2,9,43,0.72) 72%, rgba(2,9,43,0.95) 100%),
+          url('../assets/mobile-hero.webp') center top / cover no-repeat,
+          linear-gradient(180deg, #02092b 0%, #04113a 100%);
+      }
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; padding: 280px 0 48px; min-height: 0; text-align: center; }
+      .hero-logo { margin-inline: auto; }
+      .meta { justify-content: center; }
+      .hero-sub { margin-inline: auto; }
+      .days { grid-template-columns: 1fr; gap: 20px; }
+      .bio-section {
+        background: var(--bg-elev);
+        min-height: 0;
+        padding-top: 8px;
+      }
+      /* Foto do Dr. como um "band" curto no topo (corta logo abaixo dos ombros),
+         com o título vindo colado logo abaixo — sem espaço vazio. */
+      .bio-section::before {
+        content: "";
+        display: block;
+        width: 100%;
+        aspect-ratio: 800 / 720;
+        background: url('../assets/mobile-quem-sou.webp') center top / cover no-repeat;
+        -webkit-mask-image: linear-gradient(180deg, #000 92%, transparent 100%);
+                mask-image: linear-gradient(180deg, #000 92%, transparent 100%);
+      }
+      .bio-section .section-title { margin: 6px 0 16px; }
+      .days-section {
+        background:
+          linear-gradient(180deg, rgba(2,9,43,0.94) 0%, rgba(2,9,43,0.90) 100%),
+          url('../assets/secao-02.webp') center center / cover no-repeat,
+          var(--bg);
+      }
+      .bio-grid { grid-template-columns: 1fr; gap: 20px; text-align: center; padding-top: 0; }
+      /* velocidade do marquee no mobile */
+      .marquee-track { animation: marquee 5s linear infinite; }
+    }
+    @media (max-width: 600px) {
+      .faixa-line { display: none; }
+      .faixa-badge {
+        width: 100%;
+        border-radius: 12px;
+        padding: 10px 14px;
+      }
+      .faixa-text { white-space: normal; font-size: 11px; letter-spacing: .8px; }
+      .section { padding: 56px 0; }
+      .marquee-track span { font-size: 1rem; letter-spacing: 1.2px; }
+      .modal { padding: 32px 22px 24px; }
+      .btn-cta { padding: 16px 28px; font-size: .9rem; letter-spacing: 1px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       FAIXA EXCLUSIVA
+       ============================================================ -->
+  <header class="faixa">
+    <div class="faixa-inner">
+      <div class="faixa-line"></div>
+      <div class="faixa-badge">
+        <span class="faixa-dot"></span>
+        <p class="faixa-text">Exclusivo para famílias em SC com mais de 3 milhões de patrimônio</p>
+      </div>
+      <div class="faixa-line"></div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <img class="hero-logo"
+               src="../assets/logo-mpp.png"
+               alt="Mapa do Planejamento Patrimonial"
+               width="800" height="302" decoding="async" fetchpriority="high">
+
+          <ul class="meta" aria-label="Informações do evento">
+            <li>
+              <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>
+              11, 12 e 13 | AGOSTO
+            </li>
+            <li>
+              <svg viewBox="0 0 512 512" aria-hidden="true"><path d="M256,8C119,8,8,119,8,256S119,504,256,504,504,393,504,256,393,8,256,8Zm92.49,313l-20,25a16,16,0,0,1-22.49,2.5l-67-49.72a40,40,0,0,1-15-31.23V112a16,16,0,0,1,16-16h32a16,16,0,0,1,16,16V256l58,42.5A16,16,0,0,1,348.49,321Z"/></svg>
+              19h30
+            </li>
+            <li>
+              <svg viewBox="0 0 512 512" aria-hidden="true"><path d="M371.7 238l-176-107c-15.8-8.8-35.7 2.5-35.7 21v208c0 18.4 19.8 29.8 35.7 21l176-101c16.4-9.1 16.4-32.8 0-42zM504 256C504 119 393 8 256 8S8 119 8 256s111 248 248 248 248-111 248-248zm-448 0c0-110.5 89.5-200 200-200s200 89.5 200 200-89.5 200-200 200S56 366.5 56 256z"/></svg>
+              Gratuito e Ao Vivo
+            </li>
+          </ul>
+
+          <h1><span class="accent">Proteja e potencialize</span> seu patrimônio da Reforma Tributária!</h1>
+
+          <p class="hero-sub">
+            Conheça as mais avançadas estratégias legais para reduzir impostos em imóveis de locação
+            <strong>em Santa Catarina</strong>, proteger ativos e <strong>transmitir 100% do seu legado</strong>
+            — com governança e controle total em vida.
+          </p>
+
+          <button type="button" class="btn-cta js-open-modal" data-cta-id="hero">Fazer inscrição gratuita</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MARQUEE
+       ============================================================ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Mapa do Planejamento Patrimonial<span class="dot">•</span></span>
+      <span>Mapa do Planejamento Patrimonial<span class="dot">•</span></span>
+      <span>Mapa do Planejamento Patrimonial<span class="dot">•</span></span>
+      <span>Mapa do Planejamento Patrimonial<span class="dot">•</span></span>
+      <span>Mapa do Planejamento Patrimonial<span class="dot">•</span></span>
+      <span>Mapa do Planejamento Patrimonial<span class="dot">•</span></span>
+      <span>Mapa do Planejamento Patrimonial<span class="dot">•</span></span>
+      <span>Mapa do Planejamento Patrimonial<span class="dot">•</span></span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       NO MPP VOCÊ VAI APRENDER
+       ============================================================ -->
+  <section class="section days-section">
+    <div class="wrap">
+      <h2 class="section-title">No <span class="accent">MPP</span> você vai aprender:</h2>
+
+      <div class="days">
+        <article class="day-card">
+          <h3><span class="day-num">Dia 01:</span><b>Conhecendo os desafios:</b> Inventário — o vilão que pode destruir sua família</h3>
+          <ul class="day-meta">
+            <li><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48z"/></svg> Terça-feira</li>
+            <li><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M256,8C119,8,8,119,8,256S119,504,256,504,504,393,504,256,393,8,256,8Zm92.49,313l-20,25a16,16,0,0,1-22.49,2.5l-67-49.72a40,40,0,0,1-15-31.23V112a16,16,0,0,1,16-16h32a16,16,0,0,1,16,16V256l58,42.5A16,16,0,0,1,348.49,321Z"/></svg> 19h30</li>
+          </ul>
+          <p>Na primeira etapa da nossa jornada, você vai entender <strong>como o inventário pode causar brigas familiares e principalmente comprometer o futuro financeiro</strong> de quem você ama.</p>
+        </article>
+
+        <article class="day-card">
+          <h3><span class="day-num">Dia 02:</span><b>Explorando:</b> Conheça os segredos do Planejamento Patrimonial</h3>
+          <ul class="day-meta">
+            <li><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48z"/></svg> Quarta-feira</li>
+            <li><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M256,8C119,8,8,119,8,256S119,504,256,504,504,393,504,256,393,8,256,8Zm92.49,313l-20,25a16,16,0,0,1-22.49,2.5l-67-49.72a40,40,0,0,1-15-31.23V112a16,16,0,0,1,16-16h32a16,16,0,0,1,16,16V256l58,42.5A16,16,0,0,1,348.49,321Z"/></svg> 19h30</li>
+          </ul>
+          <p>Descubra <strong>como proteger seu patrimônio e garantir que tudo que você construiu chegue diretamente aos seus filhos</strong>, de forma segura e simples.</p>
+        </article>
+
+        <article class="day-card">
+          <h3><span class="day-num">Dia 03:</span><b>Dominando o Mapa:</b> A estratégia definitiva para transformar o futuro da sua família</h3>
+          <ul class="day-meta">
+            <li><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48z"/></svg> Quinta-feira</li>
+            <li><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M256,8C119,8,8,119,8,256S119,504,256,504,504,393,504,256,393,8,256,8Zm92.49,313l-20,25a16,16,0,0,1-22.49,2.5l-67-49.72a40,40,0,0,1-15-31.23V112a16,16,0,0,1,16-16h32a16,16,0,0,1,16,16V256l58,42.5A16,16,0,0,1,348.49,321Z"/></svg> 19h30</li>
+          </ul>
+          <p>No último dia, você aprenderá <strong>como aplicar a ferramenta mais eficaz para proteger seu legado e garantir um futuro próspero</strong> para sua família.</p>
+        </article>
+      </div>
+
+      <div class="cta-row">
+        <button type="button" class="btn-cta js-open-modal" data-cta-id="apos-dias">Fazer inscrição gratuita</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       QUEM É O DR. LUIZ GARCEZ
+       ============================================================ -->
+  <section class="section bio-section">
+    <div class="wrap">
+      <h2 class="section-title">Quem é o <span class="accent">Dr. Luiz Garcez?</span></h2>
+
+      <div class="bio-grid">
+        <div class="bio-text">
+          <p><strong>Dr. Luiz Garcez</strong> é advogado, especialista em <strong>Planejamento Patrimonial e Holding Familiar</strong>.</p>
+          <p>É fundador da <strong>Garcez Consultoria</strong>, com sede física em <strong>Criciúma, Santa Catarina</strong>, e se dedica a levar esse tema, muitas vezes visto como complexo, para o dia a dia de famílias que desejam proteger e organizar o que construíram com tanto esforço.</p>
+          <p>Já ajudou <strong>inúmeras famílias catarinenses</strong> a protegerem o seu patrimônio, e através de suas redes sociais e atendimentos personalizados, também acompanha <strong>centenas de famílias em todo o Brasil</strong> a evitar o inventário, reduzir impostos e garantir que o patrimônio permaneça seguro por gerações.</p>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <button type="button" class="btn-cta js-open-modal" data-cta-id="apos-bio">Fazer inscrição gratuita</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DEPOIMENTOS
+       ============================================================ -->
+  <section class="section testi-section">
+    <div class="wrap">
+      <h2 class="section-title"><span class="accent">Depoimentos:</span></h2>
+
+      <div class="testi-wrap">
+        <div class="testi-track">
+          <div class="testi-card"><img loading="lazy" decoding="async" src="../assets/dep-01.jpg" alt="Depoimento 1"></div>
+          <div class="testi-card"><img loading="lazy" decoding="async" src="../assets/dep-02.jpg" alt="Depoimento 2"></div>
+          <div class="testi-card"><img loading="lazy" decoding="async" src="../assets/dep-03.jpg" alt="Depoimento 3"></div>
+          <div class="testi-card" aria-hidden="true"><img loading="lazy" decoding="async" src="../assets/dep-01.jpg" alt=""></div>
+          <div class="testi-card" aria-hidden="true"><img loading="lazy" decoding="async" src="../assets/dep-02.jpg" alt=""></div>
+          <div class="testi-card" aria-hidden="true"><img loading="lazy" decoding="async" src="../assets/dep-03.jpg" alt=""></div>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <button type="button" class="btn-cta js-open-modal" data-cta-id="apos-depoimentos">Fazer inscrição gratuita</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PERGUNTAS FREQUENTES
+       ============================================================ -->
+  <section class="section">
+    <div class="wrap">
+      <h2 class="section-title">Perguntas <span class="accent">frequentes</span></h2>
+
+      <div class="faq">
+        <details class="faq-item">
+          <summary class="faq-q">O que é o MPP?<span class="icon">+</span></summary>
+          <div class="faq-a">
+            <p>O MPP — Mapa do Planejamento Patrimonial, é um evento online e gratuito que mostra, de forma simples e prática, como proteger seu patrimônio e garantir que ele cresça e seja transmitido de forma segura para seus herdeiros, sem burocracia e sem os altos custos do inventário.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Quando acontece o evento?<span class="icon">+</span></summary>
+          <div class="faq-a">
+            <p>O evento é dividido em <strong>3 encontros ao vivo</strong>, realizados em dias consecutivos, sempre às <strong>19h30</strong> (horário de Brasília).</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Preciso ter conhecimento jurídico ou contábil para entender?<span class="icon">+</span></summary>
+          <div class="faq-a">
+            <p>Não! Pelo contrário, o conteúdo do MPP é voltado para o público geral que possui patrimônio e apresentado em uma linguagem acessível, sem juridiquês, para que qualquer pessoa consiga entender e aplicar.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">O evento é ao vivo? Vai ter gravação?<span class="icon">+</span></summary>
+          <div class="faq-a">
+            <p>Sim, os encontros são <strong>ao vivo</strong>. Para garantir exclusividade e comprometimento com os participantes, <strong>as aulas não ficam gravadas</strong>. Por isso, é fundamental estar presente nos horários ao vivo.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Como vou acessar o evento?<span class="icon">+</span></summary>
+          <div class="faq-a">
+            <p>O acesso será feito através de um <strong>link exclusivo enviado pelo WhatsApp</strong>, pouco antes de cada encontro. Basta estar na comunidade exclusiva do evento, clicar e assistir ao vivo pelo YouTube, sem precisar baixar nada.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Vai ter material de apoio?<span class="icon">+</span></summary>
+          <div class="faq-a">
+            <p>Sim! Durante o evento, você terá acesso a resumos e materiais complementares para te ajudar a aplicar o que foi aprendido em cada dia.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="cta-row">
+        <button type="button" class="btn-cta js-open-modal" data-cta-id="apos-faq">Fazer inscrição gratuita</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    ©2026. <strong>Luiz Garcez</strong>. Todos os Direitos Reservados.
+  </footer>
+
+  <!-- ============================================================
+       MODAL POPUP
+       ============================================================ -->
+  <div class="modal-overlay" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal" role="document">
+      <button type="button" class="modal-close" id="modal-close" aria-label="Fechar">✕</button>
+
+      <img loading="lazy" decoding="async" class="modal-logo"
+           src="../assets/logo-mpp.png"
+           alt="Mapa do Planejamento Patrimonial">
+
+      <div id="form-block">
+        <p class="modal-eyebrow">Vagas limitadas</p>
+        <h3 class="modal-title" id="modal-title">Faça sua inscrição gratuita</h3>
+        <p class="modal-sub">Receba o acesso direto no seu WhatsApp.</p>
+
+        <form class="signup" id="signup" novalidate>
+          <input class="input" id="lead-name"  name="name"  type="text"  autocomplete="name"  required placeholder="Nome completo">
+          <input class="input" id="lead-email" name="email" type="email" inputmode="email" autocomplete="email" required placeholder="Seu melhor e-mail">
+          <input class="input" id="lead-phone" name="phone" type="tel"   inputmode="numeric" autocomplete="tel" required maxlength="16" placeholder="(00) 00000-0000">
+          <p class="field-hint" id="phone-hint">DDD + número (ex: 11912345678).</p>
+
+          <!-- QUALIFICAÇÃO: patrimônio. Valores com data-qualifica="1" qualificam (>= 3 milhões). -->
+          <select class="input is-empty" id="lead-patrimonio" name="patrimonio" required aria-label="Tamanho do patrimônio">
+            <option value="" disabled selected>Qual o tamanho do seu patrimônio?</option>
+            <option value="menos-2mi"   data-qualifica="0">Menos de R$ 2 milhões</option>
+            <option value="2mi-5mi"     data-qualifica="1">De R$ 2 a R$ 5 milhões</option>
+            <option value="5mi-10mi"    data-qualifica="1">De R$ 5 a R$ 10 milhões</option>
+            <option value="10mi-20mi"   data-qualifica="1">De R$ 10 a R$ 20 milhões</option>
+            <option value="acima-20mi"  data-qualifica="1">Acima de R$ 20 milhões</option>
+          </select>
+
+          <button class="btn-cta" type="submit" id="submit-btn" style="width: 100%; padding: 16px 20px; margin-top: 6px;">Quero minha vaga gratuita</button>
+
+          <p class="form-error" id="form-error" role="alert"></p>
+          <p class="form-fine">Seus dados estão seguros. Não enviamos spam.</p>
+        </form>
+      </div>
+
+      <div class="modal-success" id="modal-success" role="status" aria-live="polite">
+        <strong>Inscrição confirmada!</strong>
+        Em instantes você receberá o acesso pelo seu e-mail e WhatsApp.
+      </div>
+    </div>
+  </div>
+
+  <script>
+  /* ============================================================
+     MODAL CONTROLS
+     ============================================================ */
+  (function () {
+    const modal     = document.getElementById('modal');
+    const closeBtn  = document.getElementById('modal-close');
+    const triggers  = document.querySelectorAll('.js-open-modal');
+
+    function open() {
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      setTimeout(function () {
+        const firstInput = document.getElementById('lead-name');
+        if (firstInput) firstInput.focus();
+      }, 50);
+    }
+    function close() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    triggers.forEach(function (btn) { btn.addEventListener('click', function () {
+      var f = document.getElementById('signup'); if (f) f.dataset.ctaId = btn.dataset.ctaId || '';
+      open();
+    }); });
+    closeBtn.addEventListener('click', close);
+    modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+    });
+  })();
+
+  /* Select de patrimônio: cor de placeholder até escolher */
+  (function () {
+    var sel = document.getElementById('lead-patrimonio');
+    if (sel) sel.addEventListener('change', function () { sel.classList.toggle('is-empty', !sel.value); });
+  })();
+
+  /* ============================================================
+     PHONE MASK
+     ============================================================ */
+  (function () {
+    const phoneInput = document.getElementById('lead-phone');
+    if (!phoneInput) return;
+    phoneInput.addEventListener('input', function (e) {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length === 13 && v.startsWith('55')) v = v.slice(2);
+      v = v.slice(0, 11);
+      if (v.length > 6)      v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+      else if (v.length > 2) v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+      else if (v.length > 0) v = '(' + v;
+      e.target.value = v;
+    });
+  })();
+
+  /* ============================================================
+     FORM SUBMIT — fires Lead event to /tracker (Meta CAPI + GA4 + D1)
+     ============================================================ */
+  (function () {
+    const form      = document.getElementById('signup');
+    const success   = document.getElementById('modal-success');
+    const formBlock = document.getElementById('form-block');
+    const errorEl   = document.getElementById('form-error');
+    const submitBtn = document.getElementById('submit-btn');
+    if (!form) return;
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      errorEl.classList.remove('is-on');
+      errorEl.textContent = '';
+
+      const name  = document.getElementById('lead-name').value.trim();
+      const email = document.getElementById('lead-email').value.trim();
+      const phone = document.getElementById('lead-phone').value.replace(/\D/g, '');
+      const emailOk = document.getElementById('lead-email').checkValidity();
+
+      if (!name || !email || !emailOk) {
+        errorEl.textContent = 'Preencha nome e e-mail válidos.';
+        errorEl.classList.add('is-on');
+        return;
+      }
+      if (phone.length < 10) {
+        errorEl.textContent = 'Informe um WhatsApp válido com DDD.';
+        errorEl.classList.add('is-on');
+        return;
+      }
+      const patSel = document.getElementById('lead-patrimonio');
+      const patOpt = patSel.options[patSel.selectedIndex];
+      if (!patSel.value) {
+        errorEl.textContent = 'Selecione o tamanho do seu patrimônio.';
+        errorEl.classList.add('is-on');
+        return;
+      }
+      const patrimonio       = patSel.value;
+      const patrimonioLabel  = patOpt.textContent.trim();
+      const qualificado      = patOpt.dataset.qualifica === '1';
+
+      const nameParts = name.split(/\s+/);
+      const fn = nameParts[0] || '';
+      const ln = nameParts.slice(1).join(' ') || '';
+
+      submitBtn.disabled = true;
+      const originalLabel = submitBtn.textContent;
+      submitBtn.textContent = 'Enviando…';
+
+      const eventId = (crypto.randomUUID && crypto.randomUUID()) ||
+        (Date.now() + '-' + Math.random().toString(36).slice(2));
+      const crEventId = (crypto.randomUUID && crypto.randomUUID()) ||
+        (Date.now() + '-cr-' + Math.random().toString(36).slice(2));
+      const eventTime = Math.floor(Date.now() / 1000);
+
+      try { if (window.fbq) fbq('track', 'Lead', {}, { eventID: eventId }); } catch (_) {}
+      try { if (window.fbq) fbq('track', 'CompleteRegistration', {}, { eventID: crEventId }); } catch (_) {}
+
+      // --- Registro do lead: POST no webhook do Make (obrigatório) ---
+      try {
+        const a = window.MPP_ATTR || {};
+        const payload = {
+          name: name, first_name: fn, last_name: ln,
+          email: email,
+          phone: phone, phone_e164: '+55' + phone,
+          patrimonio: patrimonio, patrimonio_label: patrimonioLabel,
+          qualificado: qualificado, status_qualificacao: qualificado ? 'qualificado' : 'desqualificado',
+          utm_source: a.utm_source, utm_medium: a.utm_medium, utm_campaign: a.utm_campaign,
+          utm_term: a.utm_term, utm_content: a.utm_content, utm_id: a.utm_id,
+          fbclid: a.fbclid, gclid: a.gclid, ttclid: a.ttclid, src: a.src, sck: a.sck,
+          landing_url: a.landing_url, referrer: a.referrer,
+          page_url: window.location.href, page_id: window.MPP_CONFIG.PAGE_ID,
+          cta_id: (form.dataset.ctaId || ''),
+          event_id: eventId, submitted_at: new Date().toISOString(),
+          user_agent: navigator.userAgent,
+        };
+        const hookRes = await fetch(window.MPP_CONFIG.WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!hookRes.ok) throw new Error('webhook respondeu ' + hookRes.status);
+
+        // Tracker (Meta CAPI/GA4) é opcional e não bloqueia o redirect.
+        if (window.MPP_CONFIG.TRACKER_URL) {
+          const capiEvent = function (evName, id) {
+            return fetch(window.MPP_CONFIG.TRACKER_URL, {
+              method: 'POST', keepalive: true,
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ event_name: evName, event_id: id, event_time: eventTime,
+                event_source_url: window.location.href, user_data: { em: email, fn: fn, ln: ln, ph: phone } }),
+            }).catch(function () {});
+          };
+          capiEvent('Lead', eventId); capiEvent('CompleteRegistration', crEventId);
+        }
+
+        // Lead entregue -> redireciona para a pagina de obrigado, preservando UTMs/query da URL.
+        submitBtn.textContent = 'Redirecionando…';
+        window.location.href = window.MPP_CONFIG.OBRIGADO_URL + window.location.search;
+        return;
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+        errorEl.textContent = 'Algo deu errado. Tente novamente.';
+        errorEl.classList.add('is-on');
+        console.error('Lead submit failed:', err);
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
