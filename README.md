@@ -46,6 +46,11 @@ As fotos do Luiz já estão nos fundos do hero (`assets/hero.webp`) e da seção
 (`assets/quem-sou.webp`), idênticos ao site atual. A pasta do Drive não era acessível; se quiser trocar a foto,
 basta substituir esses arquivos mantendo o nome.
 
+## Copy da captura-v2
+
+Segue o Google Doc "Versão 01" (O fim do patrimônio no CPF). Variação de headline reservada no doc, ainda não usada:
+"Como transferir seu patrimônio para seus filhos sem passar pelo inventário e sem perder até 43% do que você levou a vida inteira para construir."
+
 ## Pendências / decisões
 
 - Data do evento no hero e nos cards de dia ("11, 12 e 13 | AGOSTO") está herdada; ajustar para a próxima turma.
