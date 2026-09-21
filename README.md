@@ -6,6 +6,7 @@ Estrutura pronta para publicar, baseada nas páginas atuais em luizgarcez.com.br
 Garcez/
 ├── assets/            # logo, depoimentos e fundos (hero.webp, quem-sou.webp, secao-02.webp + versões mobile)
 ├── captura/index.html # página de captura — mesma estrutura das páginas atuais
+├── captura-v2/index.html # página de captura — estrutura do modelo "Revolução" (metodoagendacheia.com) com identidade Garcez
 └── obrigado/index.html# página de obrigado — 1 botão → grupo do WhatsApp (link do XPzap)
 ```
 
