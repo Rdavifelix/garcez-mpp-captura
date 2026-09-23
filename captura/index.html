@@ -28,7 +28,8 @@
   window.MPP_CONFIG = {
     WEBHOOK_URL:  'https://hook.us2.make.com/5itm6cg6i89rjtk9mogmbhv1qg2m1loh', // Make: recebe TODO formulário enviado
     TRACKER_URL:  '',                  // endpoint do tracker (Meta CAPI/GA4). Vazio = desligado
-    OBRIGADO_URL: 'https://rdavifelix.github.io/garcez-mpp-captura/obrigado/', // página de obrigado (absoluta: funciona de qualquer origem; UTMs preservadas)
+    // página de obrigado: resolve ao lado desta página (funciona em lp.luizgarcez.com.br e no github.io); fora de um site, usa o domínio final
+    OBRIGADO_URL: (/^https?:$/.test(location.protocol) ? new URL('../obrigado/', location.href).href : 'https://lp.luizgarcez.com.br/obrigado/'),
     PAGE_ID:      'mpp-captura',       // identificador desta variação (vai no payload)
   };
 
