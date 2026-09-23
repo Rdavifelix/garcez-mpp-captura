@@ -483,6 +483,19 @@
       .btn-cta { padding: 16px 28px; font-size: .9rem; letter-spacing: 1px; }
     }
 
+
+    /* ---- MOBILE: botão na primeira dobra ---- */
+    @media (max-width: 720px) {
+      .hero .wrap { padding-top: 212px; display: flex; flex-direction: column; align-items: stretch; }
+      .hero-logo { order: 1; align-self: center; width: 165px; margin: 0 0 14px; }
+      .hero-eyebrow { order: 2; font-size: .95rem; margin: 0 0 8px; }
+      .hero h1 { order: 3; font-size: 1.45rem; line-height: 1.25; margin: 0 0 16px; }
+      .hero .wrap > div { order: 4; width: 100%; margin: 0 0 18px; }
+      .hero .wrap > div .btn-cta { width: 100%; padding: 17px 20px; font-size: .95rem; }
+      .hero-info { order: 5; display: flex; width: 100%; margin: 0 0 14px; padding: 12px 16px; gap: 8px; }
+      .hero-info li { font-size: .85rem; }
+      .hero-sub { order: 6; font-size: .95rem; margin: 0; }
+    }
   </style>
 </head>
 <body>
