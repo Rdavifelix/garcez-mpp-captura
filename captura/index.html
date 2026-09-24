@@ -1049,13 +1049,14 @@
 
           <!-- QUALIFICAÇÃO: patrimônio. Valores com data-qualifica="1" qualificam (>= 3 milhões). -->
           <select class="input is-empty" id="lead-patrimonio" name="patrimonio" required aria-label="Tamanho do patrimônio">
-            <option value="" disabled selected>Qual o tamanho do seu patrimônio?</option>
+            <option value="" disabled selected>Qual o tamanho do seu patrimônio? *</option>
             <option value="menos-2mi"   data-qualifica="0">Menos de R$ 2 milhões</option>
             <option value="2mi-5mi"     data-qualifica="1">De R$ 2 a R$ 5 milhões</option>
             <option value="5mi-10mi"    data-qualifica="1">De R$ 5 a R$ 10 milhões</option>
             <option value="10mi-20mi"   data-qualifica="1">De R$ 10 a R$ 20 milhões</option>
             <option value="acima-20mi"  data-qualifica="1">Acima de R$ 20 milhões</option>
           </select>
+          <p class="field-hint" id="patrimonio-hint">* Considere os valores atualizados de mercado.</p>
 
           <button class="btn-cta" type="submit" id="submit-btn" style="width: 100%; padding: 16px 20px; margin-top: 6px;">Garantir minha vaga agora →</button>
 
