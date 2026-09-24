@@ -16,8 +16,8 @@
      CONFIG — único ponto de ajuste desta página
      ============================================================ */
   window.MPP_CONFIG = {
-    // Link de redirect do grupo gerado pelo XPzap (rotaciona os grupos do WhatsApp).
-    GROUP_URL:   'COLE_AQUI_O_LINK_DO_XPZAP',
+    // Link do grupo do WhatsApp (pode ser trocado pelo link de redirect do XPzap).
+    GROUP_URL:   'https://chat.whatsapp.com/HBlkd53hgfTDhgcqObq6vs',
     // Endpoint do tracker (mesmo da página de captura). Deixe '' para desligar.
     TRACKER_URL: '',
   };
@@ -149,7 +149,8 @@
     }
     // Preserva UTMs da captura no link do grupo (útil para atribuição no XPzap).
     var qs = window.location.search;
-    if (qs && qs.length > 1) url += (url.indexOf('?') === -1 ? '?' : '&') + qs.slice(1);
+    // UTMs só são anexadas a links de redirect (ex.: XPzap); convites diretos do WhatsApp ficam limpos.
+    if (qs && qs.length > 1 && !/whatsapp\.com|wa\.me/i.test(url)) url += (url.indexOf('?') === -1 ? '?' : '&') + qs.slice(1);
     btn.setAttribute('href', url);
     btn.addEventListener('click', function () {
       try { if (window.fbq) fbq('trackCustom', 'JoinGroupClick'); } catch (_) {}
