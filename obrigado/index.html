@@ -34,6 +34,10 @@
     (function () {
       var id = (crypto.randomUUID && crypto.randomUUID()) || (Date.now() + '-' + Math.random().toString(36).slice(2));
       fbq('track', 'PageView', {}, { eventID: id });
+      // Evento Lead ao acessar a página de obrigado. O eventID vem da captura (lead_id) para deduplicação.
+      var lid = new URLSearchParams(location.search).get('lead_id') ||
+        ((crypto.randomUUID && crypto.randomUUID()) || (Date.now() + '-' + Math.random().toString(36).slice(2)));
+      fbq('track', 'Lead', {}, { eventID: lid });
       if (window.MPP_CONFIG.TRACKER_URL) {
         fetch(window.MPP_CONFIG.TRACKER_URL, {
           method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true,
@@ -42,6 +46,8 @@
       }
     })();
   </script>
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1213118886545108&ev=PageView&noscript=1"/></noscript>
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1213118886545108&ev=Lead&noscript=1"/></noscript>
 
   <style>
     :root {

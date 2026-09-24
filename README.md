@@ -13,7 +13,7 @@ Garcez/
 ## Fluxo
 
 1. Visitante clica em qualquer CTA → abre o modal com Nome, E-mail, WhatsApp.
-2. Submit faz POST JSON no webhook do Make (obrigatório) com nome, e-mail, telefone, patrimônio (`patrimonio`, `patrimonio_label`, `qualificado` true/false, `status_qualificacao`), UTMs, fbclid/gclid, landing_url, referrer, page_id e cta_id. Pixel dispara `Lead` + `CompleteRegistration`; tracker CAPI é opcional.
+2. Submit faz POST JSON no webhook do Make (obrigatório) com nome, e-mail, telefone, patrimônio (`patrimonio`, `patrimonio_label`, `qualificado` true/false, `status_qualificacao`), UTMs, fbclid/gclid, landing_url, referrer, page_id e cta_id. Pixel Meta (1213118886545108) em todas as páginas com fallback `<noscript>`. O evento `Lead` dispara ao abrir a página de obrigado, com `eventID` = `lead_id` recebido pela URL da captura (deduplicação). Tracker CAPI é opcional.
    UTMs são capturadas na primeira visita e guardadas 30 dias no navegador (first-touch), então chegam mesmo se o lead voltar sem parâmetros.
    Para testar o webhook: `./teste-webhook.sh` (o cenário no Make precisa estar ligado ou em modo de escuta).
 3. Sucesso → redireciona para `obrigado/` preservando a query string (UTMs).

@@ -98,6 +98,7 @@
       }).catch(function () {});
     })();
   </script>
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1213118886545108&ev=PageView&noscript=1"/></noscript>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; }
@@ -1183,8 +1184,7 @@
         (Date.now() + '-cr-' + Math.random().toString(36).slice(2));
       const eventTime = Math.floor(Date.now() / 1000);
 
-      try { if (window.fbq) fbq('track', 'Lead', {}, { eventID: eventId }); } catch (_) {}
-      try { if (window.fbq) fbq('track', 'CompleteRegistration', {}, { eventID: crEventId }); } catch (_) {}
+      // O evento Lead do Pixel é disparado na página de obrigado (eventID = lead_id), evitando duplicidade.
 
       // --- Registro do lead: POST no webhook do Make (obrigatório) ---
       try {
@@ -1226,7 +1226,8 @@
 
         // Lead entregue -> redireciona para a pagina de obrigado, preservando UTMs/query da URL.
         submitBtn.textContent = 'Redirecionando…';
-        window.location.href = window.MPP_CONFIG.OBRIGADO_URL + window.location.search;
+        const qs = new URLSearchParams(window.location.search); qs.set('lead_id', eventId);
+        window.location.href = window.MPP_CONFIG.OBRIGADO_URL + '?' + qs.toString();
         return;
       } catch (err) {
         submitBtn.disabled = false;
