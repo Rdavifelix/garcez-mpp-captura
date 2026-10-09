@@ -6,8 +6,10 @@ Estrutura pronta para publicar, baseada nas páginas atuais em luizgarcez.com.br
 Garcez/
 ├── assets/            # logo, depoimentos e fundos (hero.webp, quem-sou.webp, secao-02.webp + versões mobile)
 ├── captura/index.html # página de captura — estrutura visual das páginas antigas, copy do Google Doc (O fim do patrimônio no CPF)
+├── captura-sem-patrimonio/index.html # cópia de captura/ sem a pergunta de patrimônio (page_id mpp-captura-sem-patrimonio)
 ├── captura-v2/index.html # página de captura — estrutura do modelo "Revolução" (metodoagendacheia.com) com identidade Garcez
 └── obrigado/index.html# página de obrigado — 1 botão → grupo do WhatsApp (link do XPzap)
+└── dashboard/         # dashboard de captação (leads da planilha + gasto Meta) — ver dashboard/README.md
 ```
 
 ## Fluxo
@@ -53,6 +55,10 @@ As duas capturas e a obrigado seguem o Google Doc "Versão 01" (O fim do patrim�
 
 ## Pendências / decisões
 
-- Data do evento no hero e nos cards de dia ("11, 12 e 13 | AGOSTO") está herdada; ajustar para a próxima turma.
+- Data do evento: 11 de Outubro (domingo), 19:30, nas 3 capturas (hero, título da seção, FAQ e meta description). Ao mudar de turma, trocar em todas.
 - A página de obrigado atual do site tem redirect automático em 10s + botão de suporte. A nova versão é
   propositalmente simples (só o botão), conforme pedido; se quiser o redirect automático de volta, avisar.
+
+## Dashboard de captação
+
+Em `dashboard/` (HTML único + função Vercel). Lê a planilha de leads do Make e, se configurado, o gasto da Meta; a aba "Decisão por criativo" ranqueia os anúncios por custo por qualificado e diz escalar / manter / otimizar / pausar. Rodar local: `node dashboard/dev.mjs` → http://localhost:8790. Detalhes e variáveis em [dashboard/README.md](dashboard/README.md).
