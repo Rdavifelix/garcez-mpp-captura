@@ -6,7 +6,7 @@ Estrutura pronta para publicar, baseada nas páginas atuais em luizgarcez.com.br
 Garcez/
 ├── assets/            # logo, depoimentos e fundos (hero.webp, quem-sou.webp, secao-02.webp + versões mobile)
 ├── captura/index.html # página de captura — estrutura visual das páginas antigas, copy do Google Doc (O fim do patrimônio no CPF)
-├── captura-sem-patrimonio/index.html # cópia de captura/ sem a pergunta de patrimônio (page_id mpp-captura-sem-patrimonio)
+├── captura-sem-patrimonio/index.html # cópia de captura/ (page_id mpp-captura-sem-patrimonio). Desde 09/10 nenhuma captura pergunta patrimônio: status_qualificacao = nao_perguntado
 ├── captura-v2/index.html # página de captura — estrutura do modelo "Revolução" (metodoagendacheia.com) com identidade Garcez
 └── obrigado/index.html# página de obrigado — 1 botão → grupo do WhatsApp (link do XPzap)
 └── dashboard/         # dashboard de captação (leads da planilha + gasto Meta) — ver dashboard/README.md
