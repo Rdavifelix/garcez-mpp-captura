@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Diagnóstico Patrimonial | Luiz Garcez</title>
+  <meta name="description" content="Responda uma pergunta e receba o próximo passo certo para o seu patrimônio.">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+  /* ============================================================
+     CONFIG — único ponto de ajuste desta página
+     ============================================================ */
+  window.MPP_CONFIG = {
+    PAGE_ID: 'diagnosticowb',
+    // Destino de cada resposta. UTMs da URL atual são repassadas automaticamente.
+    URL_ACIMA_3M:  '#acima-3m',   // TODO: link para patrimônio acima de R$ 3 milhões
+    URL_ABAIXO_3M: '#abaixo-3m',  // TODO: link para patrimônio abaixo de R$ 3 milhões
+  };
+  </script>
+
+  <!-- Meta Pixel (mesmo ID das capturas) -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1213118886545108');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1213118886545108&ev=PageView&noscript=1"/></noscript>
+
+  <style>
+    :root {
+      --gold: #ae8b44; --gold-soft: #c9a35a; --gold-deep: #8a6d2f;
+      --bg: #02092b; --bg-elev: #0a1338;
+      --line: rgba(174,139,68,.18); --line-strong: rgba(201,163,90,.55);
+      --ink: #fff; --ink-soft: #c8cbd2; --ink-mute: #8a8e98;
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; }
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: radial-gradient(1200px 600px at 50% -10%, #0e1a4a 0%, var(--bg) 60%);
+      background-color: var(--bg);
+      color: var(--ink);
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; padding: 32px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .stage { width: 100%; max-width: 580px; text-align: center; }
+
+    .logo { width: 200px; max-width: 64%; height: auto; margin: 0 auto 26px; display: block; }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px;
+      background: rgba(174,139,68,.08); color: var(--gold-soft);
+      font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold-soft); box-shadow: 0 0 0 4px rgba(201,163,90,.18); }
+
+    h1 { font-size: clamp(26px, 5.4vw, 36px); line-height: 1.18; font-weight: 800; margin-bottom: 12px; }
+    h1 .accent { color: var(--gold-soft); }
+    .lead { color: var(--ink-soft); font-size: 16px; line-height: 1.6; max-width: 470px; margin: 0 auto 28px; }
+
+    .card {
+      background: linear-gradient(180deg, var(--bg-elev), rgba(10,19,56,.6));
+      border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 28px 20px 22px;
+    }
+    .step { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .card h2 { font-size: 20px; font-weight: 700; line-height: 1.35; margin-bottom: 20px; }
+
+    .options { display: grid; gap: 12px; }
+    .opt {
+      display: flex; align-items: center; gap: 14px;
+      width: 100%; padding: 18px 18px; border-radius: 12px;
+      background: rgba(2,9,43,.55); border: 1px solid var(--line);
+      color: var(--ink); text-decoration: none; text-align: left;
+      font: inherit; cursor: pointer;
+      transition: border-color .15s ease, transform .15s ease, background .15s ease, box-shadow .15s ease;
+    }
+    .opt:hover, .opt:focus-visible {
+      border-color: var(--line-strong); background: rgba(174,139,68,.08);
+      transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,.35); outline: none;
+    }
+    .opt .ico {
+      flex: none; width: 44px; height: 44px; border-radius: 10px;
+      display: grid; place-items: center;
+      background: rgba(174,139,68,.12); border: 1px solid var(--line); color: var(--gold-soft);
+    }
+    .opt .ico svg { width: 22px; height: 22px; }
+    .opt .txt { flex: 1; min-width: 0; }
+    .opt .label { display: block; font-size: 13px; font-weight: 500; color: var(--ink-mute); margin-bottom: 2px; }
+    .opt .value { display: block; font-size: 18px; font-weight: 700; }
+    .opt .value b { color: var(--gold-soft); font-weight: 800; white-space: nowrap; }
+    .opt .arrow { flex: none; color: var(--gold-soft); font-size: 22px; transition: transform .15s ease; }
+    .opt:hover .arrow { transform: translateX(3px); }
+
+    .opt.primary {
+      background: linear-gradient(180deg, var(--gold-soft), var(--gold-deep));
+      border-color: transparent; color: #02092b;
+      box-shadow: 0 10px 30px rgba(174,139,68,.28);
+    }
+    .opt.primary .label { color: rgba(2,9,43,.7); }
+    .opt.primary .value b, .opt.primary .arrow { color: #02092b; }
+    .opt.primary .ico { background: rgba(2,9,43,.12); border-color: rgba(2,9,43,.18); color: #02092b; }
+    .opt.primary:hover { background: linear-gradient(180deg, #d4b06a, var(--gold)); box-shadow: 0 14px 36px rgba(174,139,68,.4); }
+
+    .hint { margin-top: 16px; font-size: 13px; color: var(--ink-mute); display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .hint svg { width: 14px; height: 14px; }
+
+    .author { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 28px; text-align: left; }
+    .author img { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--gold); object-fit: cover; }
+    .author .name { font-size: 14px; font-weight: 700; }
+    .author .role { font-size: 12px; color: var(--ink-mute); }
+
+    .foot { margin-top: 26px; font-size: 12px; color: var(--ink-mute); }
+    .foot b { color: var(--ink-soft); }
+  </style>
+</head>
+<body>
+  <main class="stage">
+
+    <img class="logo" src="../assets/logo-workshop-600.webp" alt="Workshop Arquitetura do Legado" width="600" height="225">
+
+    <div class="badge"><span class="dot"></span> Diagnóstico patrimonial</div>
+
+    <h1>Qual é o <span class="accent">próximo passo</span> para proteger o seu patrimônio?</h1>
+
+    <p class="lead">
+      Responda uma única pergunta. Com base nela, você será direcionado ao caminho certo para o seu momento.
+    </p>
+
+    <div class="card">
+      <div class="step">Pergunta única</div>
+      <h2>Qual é o valor aproximado do seu patrimônio hoje?</h2>
+
+      <div class="options">
+        <a class="opt primary" id="optAcima" href="#" data-answer="acima_3m">
+          <span class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10 12 4l9 6"/><path d="M5 10v9M9.5 10v9M14.5 10v9M19 10v9"/><path d="M3 20h18"/></svg>
+          </span>
+          <span class="txt">
+            <span class="label">Patrimônio</span>
+            <span class="value">Acima de <b>R$ 3 milhões</b></span>
+          </span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a class="opt" id="optAbaixo" href="#" data-answer="abaixo_3m">
+          <span class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+          </span>
+          <span class="txt">
+            <span class="label">Patrimônio</span>
+            <span class="value">Abaixo de <b>R$ 3 milhões</b></span>
+          </span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <p class="hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        Sua resposta é confidencial.
+      </p>
+    </div>
+
+    <div class="author">
+      <img src="../assets/luiz-avatar.webp" alt="Dr. Luiz Garcez" width="48" height="48">
+      <div>
+        <div class="name">Dr. Luiz Garcez</div>
+        <div class="role">Advogado, especialista em Planejamento Patrimonial e Holding Familiar</div>
+      </div>
+    </div>
+
+    <div class="foot">©2026. <b>Luiz Garcez</b>. Todos os direitos reservados.</div>
+  </main>
+
+  <script>
+  (function () {
+    var cfg = window.MPP_CONFIG;
+    var qs = location.search.slice(1);
+    function withQuery(url) {
+      if (!qs || !/^https?:\/\//i.test(url)) return url;
+      return url + (url.indexOf('?') === -1 ? '?' : '&') + qs;
+    }
+    [['optAcima', cfg.URL_ACIMA_3M], ['optAbaixo', cfg.URL_ABAIXO_3M]].forEach(function (pair) {
+      var el = document.getElementById(pair[0]);
+      el.setAttribute('href', withQuery(pair[1]));
+      el.addEventListener('click', function () {
+        try { if (window.fbq) fbq('trackCustom', 'QuizAnswer', { page_id: cfg.PAGE_ID, answer: el.dataset.answer }); } catch (_) {}
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
