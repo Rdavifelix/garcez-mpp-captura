@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <script>
   /* ============================================================
@@ -41,140 +41,185 @@
 
   <style>
     :root {
-      --gold: #ae8b44; --gold-soft: #c9a35a; --gold-deep: #8a6d2f;
-      --bg: #02092b; --bg-elev: #0a1338;
-      --line: rgba(174,139,68,.18); --line-strong: rgba(201,163,90,.55);
-      --ink: #fff; --ink-soft: #c8cbd2; --ink-mute: #8a8e98;
-      --wa: #25d366; --wa-deep: #1da851;
-      --radius: 16px;
+      --gold-1: #f3dfa6; --gold-2: #d6b46a; --gold-3: #ae8b44; --gold-4: #7a5f27;
+      --gold-text: linear-gradient(100deg, #e9cf8a 0%, #f7e7b5 38%, #c9a35a 62%, #e2c27a 100%);
+      --gold-fill: linear-gradient(180deg, #e6c983 0%, #c9a35a 48%, #a8853e 100%);
+      --bg: #020823; --bg-2: #061038;
+      --hair: rgba(214,180,106,.22); --hair-strong: rgba(214,180,106,.55);
+      --ink: #fff; --ink-soft: #c9ccd6; --ink-mute: #8a90a3;
+      --wa: #25d366;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { min-height: 100%; }
+    html { background: var(--bg); }
     body {
       font-family: 'Poppins', system-ui, sans-serif;
-      background: radial-gradient(1200px 600px at 50% -10%, #0e1a4a 0%, var(--bg) 60%);
-      background-color: var(--bg);
       color: var(--ink);
+      background-color: var(--bg);
+      background-image:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+        radial-gradient(520px 320px at 50% -60px, rgba(214,180,106,.20), transparent 70%),
+        radial-gradient(900px 700px at 50% 0%, #0b1a52 0%, rgba(2,8,35,0) 70%);
+      background-attachment: scroll;
+      min-height: 100vh;
       display: flex; justify-content: center;
-      min-height: 100vh; padding: 20px 16px 32px;
+      padding: 22px 18px 36px;
       -webkit-font-smoothing: antialiased;
     }
-    .stage { width: 100%; max-width: 580px; text-align: center; }
+    .stage { width: 100%; max-width: 520px; text-align: center; }
 
-    .logo { width: 136px; max-width: 42%; height: auto; margin: 0 auto 12px; display: block; }
+    /* Cabeçalho */
+    .brand { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 18px; }
+    .brand .rule { flex: 1; max-width: 70px; height: 1px; background: linear-gradient(90deg, transparent, var(--hair-strong)); }
+    .brand .rule:last-child { transform: scaleX(-1); }
+    .logo { width: 128px; height: auto; display: block; filter: drop-shadow(0 6px 18px rgba(214,180,106,.18)); }
 
-    h1 { font-size: clamp(27px, 6vw, 38px); line-height: 1.15; font-weight: 800; margin-bottom: 10px; }
-    h1 .accent { color: var(--gold-soft); }
-    .lead { color: var(--ink-soft); font-size: 17px; line-height: 1.5; max-width: 480px; margin: 0 auto 18px; }
-    .lead strong { color: var(--ink); }
+    .eyebrow {
+      font-size: 11px; font-weight: 500; letter-spacing: .32em; text-transform: uppercase;
+      color: var(--gold-2); margin-bottom: 10px;
+    }
+    h1 { font-size: clamp(27px, 6.6vw, 38px); line-height: 1.14; font-weight: 600; letter-spacing: -.01em; margin-bottom: 12px; }
+    h1 .gold { background: var(--gold-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { color: var(--ink-soft); font-size: 16px; font-weight: 300; line-height: 1.55; max-width: 430px; margin: 0 auto 20px; }
+    .lead strong { color: var(--ink); font-weight: 500; }
 
-    /* Opções (primeira dobra) */
-    .options { display: grid; gap: 12px; text-align: left; }
+    /* Opções */
+    .options { display: grid; gap: 12px; }
     .opt {
-      display: block; width: 100%; padding: 16px 16px 14px; border-radius: 14px;
-      color: var(--ink); text-decoration: none;
-      transition: transform .15s ease, box-shadow .15s ease;
+      position: relative; display: block; text-decoration: none; color: var(--ink); text-align: left;
+      padding: 18px 18px 16px; border-radius: 18px;
+      background:
+        linear-gradient(160deg, rgba(14,28,84,.92), rgba(4,11,44,.96)) padding-box,
+        linear-gradient(140deg, rgba(243,223,166,.75), rgba(174,139,68,.18) 40%, rgba(174,139,68,.12) 60%, rgba(243,223,166,.6)) border-box;
+      border: 1px solid transparent;
+      box-shadow: 0 18px 40px -18px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.04);
+      transition: transform .2s ease, box-shadow .2s ease;
+      overflow: hidden;
     }
-    .opt:hover, .opt:focus-visible { transform: translateY(-2px); outline: none; }
-    .opt:focus-visible { box-shadow: 0 0 0 4px rgba(201,163,90,.5); }
-    .opt .label { display: block; font-size: 15px; font-weight: 500; }
-    .opt .value { display: block; font-size: 24px; line-height: 1.2; font-weight: 800; }
-    .opt .value b { white-space: nowrap; }
+    .opt::before { /* brilho dourado no topo do cartão */
+      content: ''; position: absolute; left: 18px; right: 18px; top: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-1), transparent); opacity: .55;
+    }
+    .opt:hover, .opt:focus-visible { transform: translateY(-2px); box-shadow: 0 24px 50px -18px rgba(0,0,0,.9), 0 0 0 1px rgba(243,223,166,.25); outline: none; }
+    .opt:focus-visible { box-shadow: 0 0 0 3px rgba(214,180,106,.6); }
+
+    .opt .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .opt .label { font-size: 11px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--ink-mute); }
+    .opt .tag {
+      font-size: 11px; font-weight: 500; letter-spacing: .08em; color: var(--gold-2);
+      border: 1px solid var(--hair); border-radius: 999px; padding: 3px 10px; white-space: nowrap;
+    }
+    .opt .value { display: block; margin-top: 6px; font-size: 23px; line-height: 1.2; font-weight: 300; }
+    .opt .value b { font-weight: 600; white-space: nowrap; background: var(--gold-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
     .opt .cta {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      margin-top: 12px; padding: 13px 14px; border-radius: 10px;
-      background: linear-gradient(180deg, var(--wa), var(--wa-deep)); color: #fff;
-      font-size: 17px; font-weight: 700; white-space: nowrap;
-      box-shadow: 0 6px 18px rgba(37,211,102,.25);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      margin-top: 14px; padding: 14px 16px; border-radius: 12px;
+      background: var(--gold-fill); color: #0b1236;
+      font-size: 16px; font-weight: 600; letter-spacing: .01em; white-space: nowrap;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 10px 24px -10px rgba(214,180,106,.55);
     }
-    .opt .cta svg { width: 22px; height: 22px; flex: none; }
-
-    .opt.gold {
-      background: linear-gradient(180deg, var(--gold-soft), var(--gold-deep)); color: var(--bg);
-      box-shadow: 0 10px 30px rgba(174,139,68,.28);
+    .opt .cta::after { /* reflexo que passa devagar */
+      content: ''; position: absolute; top: 0; bottom: 0; width: 40%; left: -60%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,.45), transparent);
+      transform: skewX(-20deg); animation: sheen 5s ease-in-out infinite;
     }
-    .opt.gold .label { color: rgba(2,9,43,.75); }
-    .opt.navy { background: var(--bg-elev); border: 2px solid var(--gold-soft); }
-    .opt.navy .label { color: var(--ink-soft); }
-    .opt.navy .value b { color: var(--gold-soft); }
-
-    .hint { margin-top: 14px; font-size: 16px; line-height: 1.5; color: var(--ink-soft); }
-    .hint strong { color: var(--ink); }
-
-    /* Abaixo da dobra: explicações */
-    .card {
-      margin-top: 30px; text-align: left;
-      background: linear-gradient(180deg, var(--bg-elev), rgba(10,19,56,.6));
-      border: 1px solid var(--line); border-radius: var(--radius);
-      padding: 24px 18px;
+    .opt:nth-child(2) .cta::after { animation-delay: 2.5s; }
+    @keyframes sheen { 0%, 70% { left: -60%; } 100% { left: 130%; } }
+    .opt .cta .wa {
+      flex: none; width: 28px; height: 28px; border-radius: 50%;
+      display: grid; place-items: center; background: var(--wa); color: #fff;
+      box-shadow: 0 0 0 2px rgba(255,255,255,.35);
     }
-    .card h2 { font-size: 21px; font-weight: 700; margin-bottom: 16px; text-align: center; }
-    .steps { list-style: none; display: grid; gap: 14px; }
-    .steps li { display: flex; align-items: flex-start; gap: 14px; font-size: 17px; line-height: 1.45; }
+    .opt .cta .wa svg { width: 17px; height: 17px; }
+    .opt .cta .arrow { font-weight: 400; transition: transform .2s ease; }
+    .opt:hover .cta .arrow { transform: translateX(3px); }
+
+    .hint { margin-top: 16px; font-size: 14px; font-weight: 300; line-height: 1.55; color: var(--ink-soft); }
+    .hint strong { color: var(--gold-1); font-weight: 500; }
+
+    /* Divisor ornamental */
+    .divider { display: flex; align-items: center; gap: 14px; margin: 34px 0 22px; color: var(--gold-2); }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--hair-strong)); }
+    .divider::after { transform: scaleX(-1); }
+    .divider span { font-size: 11px; font-weight: 500; letter-spacing: .32em; text-transform: uppercase; }
+
+    /* Como funciona */
+    .steps { list-style: none; display: grid; gap: 0; text-align: left; }
+    .steps li { display: flex; gap: 16px; padding: 14px 4px; border-bottom: 1px solid rgba(214,180,106,.1); }
+    .steps li:last-child { border-bottom: 0; }
     .steps .n {
-      flex: none; width: 34px; height: 34px; border-radius: 50%;
-      display: grid; place-items: center; margin-top: -3px;
-      background: var(--gold-soft); color: var(--bg); font-weight: 800; font-size: 17px;
+      flex: none; width: 36px; height: 36px; border-radius: 50%;
+      display: grid; place-items: center;
+      border: 1px solid var(--hair-strong); color: var(--gold-1);
+      font-size: 15px; font-weight: 500;
+      background: radial-gradient(circle at 30% 30%, rgba(214,180,106,.18), transparent 70%);
     }
-    .steps strong { color: var(--gold-soft); }
+    .steps h3 { font-size: 16px; font-weight: 600; margin-bottom: 2px; }
+    .steps p { font-size: 15px; font-weight: 300; line-height: 1.5; color: var(--ink-soft); }
 
     .explain {
-      margin-top: 20px; font-size: 16px; line-height: 1.55; color: var(--ink-soft);
-      background: rgba(174,139,68,.07); border-left: 3px solid var(--gold);
-      border-radius: 8px; padding: 12px 14px;
+      margin-top: 18px; text-align: left; padding: 16px 18px; border-radius: 14px;
+      background: rgba(214,180,106,.06); border: 1px solid var(--hair);
+      font-size: 15px; font-weight: 300; line-height: 1.6; color: var(--ink-soft);
     }
-    .explain strong { color: var(--ink); }
+    .explain strong { display: block; color: var(--gold-1); font-weight: 500; margin-bottom: 2px; }
 
-    .secure { margin-top: 18px; font-size: 14px; color: var(--ink-mute); display: flex; align-items: center; justify-content: center; gap: 6px; }
-    .secure svg { width: 15px; height: 15px; }
+    .secure { margin-top: 18px; font-size: 13px; font-weight: 300; color: var(--ink-mute); display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .secure svg { width: 14px; height: 14px; color: var(--gold-2); }
 
-    .foot { margin-top: 24px; font-size: 13px; color: var(--ink-mute); }
-    .foot b { color: var(--ink-soft); }
+    .foot { margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(214,180,106,.1); font-size: 12px; font-weight: 300; color: var(--ink-mute); letter-spacing: .02em; }
+    .foot b { color: var(--ink-soft); font-weight: 500; }
+
+    @media (prefers-reduced-motion: reduce) { .opt .cta::after { animation: none; } }
   </style>
 </head>
 <body>
   <main class="stage">
 
-    <img class="logo" src="../assets/logo-workshop-600.webp" alt="Workshop Arquitetura do Legado" width="600" height="225">
+    <div class="brand">
+      <span class="rule"></span>
+      <img class="logo" src="../assets/logo-workshop-600.webp" alt="Workshop Arquitetura do Legado" width="600" height="225">
+      <span class="rule"></span>
+    </div>
 
-    <h1>Agende o seu <span class="accent">Diagnóstico Patrimonial</span></h1>
-
-    <p class="lead">Toque na opção que combina com o seu patrimônio. Uma <strong>conversa no WhatsApp</strong> vai abrir com a nossa equipe.</p>
+    <p class="eyebrow">Atendimento reservado</p>
+    <h1>Agende o seu<br><span class="gold">Diagnóstico Patrimonial</span></h1>
+    <p class="lead">Toque na opção que corresponde ao seu patrimônio. Uma <strong>conversa no WhatsApp</strong> vai abrir com a nossa equipe.</p>
 
     <div class="options">
-      <a class="opt gold" id="optAcima" href="#" rel="noopener" data-answer="acima_3m">
-        <span class="label">Meu patrimônio é</span>
-        <span class="value">ACIMA de <b>R$ 3 milhões</b></span>
-        <span class="cta"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.8.9 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.2-.4c-1-1.6-1.5-3.4-1.5-5.3C5 9.5 9.9 4.6 16 4.6S27 9.5 27 15.6 22.1 24.8 16 24.8zm5.6-6.8c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5 0-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 2 .8 2.7.9 3.7.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg> Conversar no WhatsApp</span>
+      <a class="opt" id="optAcima" href="#" rel="noopener" data-answer="acima_3m">
+        <span class="top"><span class="label">Meu patrimônio é</span></span>
+        <span class="value">Acima de <b>R$ 3 milhões</b></span>
+        <span class="cta"><span class="wa"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.8.9 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.2-.4c-1-1.6-1.5-3.4-1.5-5.3C5 9.5 9.9 4.6 16 4.6S27 9.5 27 15.6 22.1 24.8 16 24.8zm5.6-6.8c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5 0-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 2 .8 2.7.9 3.7.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg></span> Falar no WhatsApp <span class="arrow" aria-hidden="true">→</span></span>
       </a>
 
-      <a class="opt navy" id="optAbaixo" href="#" rel="noopener" data-answer="abaixo_3m">
-        <span class="label">Meu patrimônio é</span>
-        <span class="value">ABAIXO de <b>R$ 3 milhões</b></span>
-        <span class="cta"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.8.9 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.2-.4c-1-1.6-1.5-3.4-1.5-5.3C5 9.5 9.9 4.6 16 4.6S27 9.5 27 15.6 22.1 24.8 16 24.8zm5.6-6.8c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5 0-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 2 .8 2.7.9 3.7.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg> Conversar no WhatsApp</span>
+      <a class="opt" id="optAbaixo" href="#" rel="noopener" data-answer="abaixo_3m">
+        <span class="top"><span class="label">Meu patrimônio é</span></span>
+        <span class="value">Abaixo de <b>R$ 3 milhões</b></span>
+        <span class="cta"><span class="wa"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.8.9 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.2-.4c-1-1.6-1.5-3.4-1.5-5.3C5 9.5 9.9 4.6 16 4.6S27 9.5 27 15.6 22.1 24.8 16 24.8zm5.6-6.8c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5 0-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 2 .8 2.7.9 3.7.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg></span> Falar no WhatsApp <span class="arrow" aria-hidden="true">→</span></span>
       </a>
     </div>
 
     <p class="hint"><strong>Não sabe o valor exato?</strong> Escolha a opção que mais se aproxima. Não existe resposta errada.</p>
 
-    <div class="card">
-      <h2>Como funciona</h2>
-      <ol class="steps">
-        <li><span class="n">1</span><span>Toque no botão que <strong>mais combina com o seu patrimônio</strong>.</span></li>
-        <li><span class="n">2</span><span>O <strong>WhatsApp vai abrir</strong> no seu celular. Se aparecer uma mensagem já escrita, é só tocar em enviar.</span></li>
-        <li><span class="n">3</span><span>Nossa equipe responde e <strong>combina com você o dia e o horário</strong> do seu diagnóstico.</span></li>
-      </ol>
+    <div class="divider"><span>Como funciona</span></div>
 
-      <p class="explain">
-        <strong>O que é patrimônio?</strong> É tudo o que você possui: imóveis (casas, apartamentos, terrenos, fazendas),
-        empresas, aplicações e investimentos, veículos e outros bens.
-      </p>
+    <ol class="steps">
+      <li><span class="n">1</span><div><h3>Escolha a sua opção</h3><p>Toque no botão que mais combina com o seu patrimônio.</p></div></li>
+      <li><span class="n">2</span><div><h3>O WhatsApp vai abrir</h3><p>Se aparecer uma mensagem já escrita, é só tocar em enviar.</p></div></li>
+      <li><span class="n">3</span><div><h3>Agendamos com você</h3><p>Nossa equipe responde e combina o melhor dia e horário para o seu diagnóstico.</p></div></li>
+    </ol>
 
-      <p class="secure">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-        Sua resposta é confidencial.
-      </p>
-    </div>
+    <p class="explain">
+      <strong>O que é patrimônio?</strong>
+      É tudo o que você possui: imóveis (casas, apartamentos, terrenos, fazendas), empresas, aplicações e investimentos, veículos e outros bens.
+    </p>
+
+    <p class="secure">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+      Sua resposta é confidencial.
+    </p>
 
     <div class="foot">©2026. <b>Luiz Garcez</b>. Todos os direitos reservados.</div>
   </main>
