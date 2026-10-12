@@ -55,7 +55,7 @@ As duas capturas e a obrigado seguem o Google Doc "Versão 01" (O fim do patrim�
 
 ## Pendências / decisões
 
-- Data do evento: 11 de Outubro (domingo), 19:30, nas 3 capturas (hero, título da seção, FAQ e meta description). Ao mudar de turma, trocar em todas.
+- Data do evento: 18 de Outubro (domingo), 19:30, nas 3 capturas (hero, título da seção, FAQ e meta description). Ao mudar de turma, trocar em todas.
 - A página de obrigado atual do site tem redirect automático em 10s + botão de suporte. A nova versão é
   propositalmente simples (só o botão), conforme pedido; se quiser o redirect automático de volta, avisar.
 
